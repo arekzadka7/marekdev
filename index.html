@@ -6,7 +6,8 @@
   <title>Marek D. - Automation Specialist &amp; Python Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -15,19 +16,27 @@
     }
 
     :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-card: #16161f;
-      --bg-card-hover: #1c1c28;
-      --border: #232334;
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #151515;
+      --bg-card-hover: #1a1a1a;
+      --border: #222222;
+      --border-light: #2a2a2a;
       --text-primary: #e8e8ed;
       --text-secondary: #9494a8;
       --text-muted: #6b6b80;
-      --accent: #6366f1;
-      --accent-light: #818cf8;
-      --accent-glow: rgba(99, 102, 241, 0.15);
+      --accent: #4a9eff;
+      --accent-light: #6db3ff;
+      --accent-glow: rgba(74, 158, 255, 0.15);
+      --accent-dark: #2d7fe0;
       --green: #34d399;
+      --green-glow: rgba(52, 211, 153, 0.15);
+      --orange: #fb923c;
+      --purple: #a78bfa;
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
 
     html {
@@ -40,6 +49,7 @@
       color: var(--text-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a {
@@ -52,23 +62,30 @@
       color: var(--green);
     }
 
-    /* --- Nav --- */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ========== NAVIGATION ========== */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
-      background: rgba(10, 10, 15, 0.85);
-      backdrop-filter: blur(12px);
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
     }
 
     .nav-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      height: 60px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,7 +93,7 @@
 
     .nav-logo {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-primary);
       letter-spacing: -0.02em;
     }
@@ -87,8 +104,9 @@
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.75rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -102,34 +120,171 @@
       color: var(--text-primary);
     }
 
-    /* --- Layout --- */
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1.15rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+      color: #fff !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      z-index: 999;
+    }
+
+    .nav-mobile.active {
+      display: block;
+    }
+
+    .nav-mobile a {
+      display: block;
+      padding: 0.75rem 0;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-mobile a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ========== LAYOUT ========== */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
     section {
-      padding: 5rem 0;
+      padding: 6rem 0;
     }
 
     .section-label {
       font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--accent);
       margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
 
-    /* --- Hero --- */
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-small {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      border-radius: 6px;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #0a0a0a;
+    }
+
+    .btn-green:hover {
+      background: #2cc48b;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px var(--green-glow);
+    }
+
+    /* ========== HERO ========== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -138,21 +293,37 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
-      top: -40%;
-      left: -20%;
-      width: 60%;
-      height: 80%;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(74, 158, 255, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(52, 211, 153, 0.06) 0%, transparent 70%);
+      animation: heroShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroShift {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.08); }
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(74, 158, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 158, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 680px;
+      max-width: 720px;
     }
 
     .hero-badge {
@@ -162,45 +333,49 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.8rem;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.82rem;
       color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero-badge .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--green);
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 700;
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
     }
 
-    .hero h1 .gradient {
+    .hero .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
       background: linear-gradient(135deg, var(--accent-light), var(--green));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 1.25rem;
     }
 
-    .hero p {
+    .hero .hero-tagline {
       font-size: 1.1rem;
       color: var(--text-secondary);
-      max-width: 520px;
-      margin-bottom: 2rem;
+      max-width: 540px;
+      margin-bottom: 2.25rem;
+      line-height: 1.7;
     }
 
     .hero-buttons {
@@ -209,59 +384,52 @@
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      font-family: var(--font);
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-light);
-      color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px var(--accent-glow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--text-muted);
-      color: var(--text-primary);
-    }
-
-    /* --- About --- */
+    /* ========== ABOUT ========== */
     #about {
       border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
     }
 
-    .about-grid {
+    .about-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 260px 1fr;
+      gap: 3.5rem;
       align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      position: relative;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.4s;
+    }
+
+    .about-photo:hover img {
+      filter: grayscale(30%);
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
     }
 
     .about-text {
       color: var(--text-secondary);
       font-size: 1rem;
-      line-height: 1.75;
+      line-height: 1.8;
+      margin-bottom: 2rem;
     }
 
     .about-text p + p {
@@ -270,66 +438,148 @@
 
     .about-stats {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
 
     .stat-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .stat-card .number {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--accent-light);
     }
 
     .stat-card .label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    /* --- Skills --- */
-    #skills {
+    /* ========== SERVICES ========== */
+    #services {
       border-top: 1px solid var(--border);
     }
 
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.625rem;
-      margin-top: 1.5rem;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .skill-tag {
+    .service-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: all 0.2s;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .skill-tag:hover {
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover {
       border-color: var(--accent);
-      color: var(--text-primary);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
       background: var(--accent-glow);
+      color: var(--accent-light);
     }
 
-    /* --- Portfolio --- */
-    #portfolio {
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .service-card .learn-more {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+
+    .service-card:hover .learn-more {
+      gap: 0.6rem;
+    }
+
+    .service-detail {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
     }
 
-    .portfolio-grid {
+    .service-card.expanded .service-detail {
+      display: block;
+    }
+
+    /* ========== PROJECTS ========== */
+    #projects {
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -337,8 +587,8 @@
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
       transition: all 0.3s;
       display: flex;
       flex-direction: column;
@@ -346,150 +596,674 @@
 
     .project-card:hover {
       border-color: var(--accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
-    .project-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+    .project-thumb {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .project-card:hover .project-thumb img {
+      transform: scale(1.05);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex: 1;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
+      flex-direction: column;
     }
 
-    .project-icon.purple {
-      background: rgba(99, 102, 241, 0.15);
-      color: var(--accent-light);
-    }
-
-    .project-icon.green {
-      background: rgba(52, 211, 153, 0.15);
-      color: var(--green);
-    }
-
-    .project-icon.orange {
-      background: rgba(251, 146, 60, 0.15);
-      color: #fb923c;
-    }
-
-    .project-card h3 {
-      font-size: 1.15rem;
+    .project-body h3 {
+      font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
     }
 
-    .project-card p {
-      font-size: 0.9rem;
+    .project-body p {
+      font-size: 0.88rem;
       color: var(--text-secondary);
       line-height: 1.6;
       flex: 1;
+      margin-bottom: 1rem;
     }
 
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
+      gap: 0.4rem;
+      margin-bottom: 1.15rem;
     }
 
     .project-tags span {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
     }
 
-    /* --- Contact --- */
-    #contact {
+    .project-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .project-actions .btn {
+      flex: 1;
+      justify-content: center;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    /* ========== WEBSITES ========== */
+    #websites {
       border-top: 1px solid var(--border);
     }
 
-    .contact-box {
+    .websites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .website-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 3rem;
-      text-align: center;
-      max-width: 600px;
-      margin: 2rem auto 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .website-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .website-thumb {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .website-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .website-card:hover .website-thumb img {
+      transform: scale(1.05);
+    }
+
+    .website-body {
+      padding: 1.5rem;
+    }
+
+    .website-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .website-url {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+
+    .website-body p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.15rem;
+    }
+
+    /* ========== METRICS ========== */
+    #metrics {
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
       position: relative;
       overflow: hidden;
     }
 
-    .contact-box::before {
+    #metrics::before {
       content: '';
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .contact-box h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .metric-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .metric-icon {
+      font-size: 1.5rem;
+      color: var(--accent-light);
       margin-bottom: 0.75rem;
     }
 
-    .contact-box p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
     }
 
-    /* --- Footer --- */
-    footer {
+    .metric-value .counter {
+      display: inline;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metric-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 4px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      width: 0%;
+      transition: width 1.5s ease-out;
+    }
+
+    /* ========== REVIEWS ========== */
+    #reviews {
       border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
     }
 
-    footer p {
-      font-size: 0.8rem;
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .review-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .review-stars {
+      color: #fbbf24;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .review-quote {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .review-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .review-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .review-role {
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    /* --- Responsive --- */
+    /* ========== CONTACT ========== */
+    #contact {
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent-light);
+    }
+
+    .contact-link i {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover i {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .contact-socials a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .contact-socials a:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+      background: var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .available-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      color: var(--green);
+      border-radius: 100px;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 1.25rem;
+    }
+
+    .available-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .contact-form h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font);
+      font-size: 0.92rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer-left p span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ========== SCROLL ANIMATIONS ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== MODAL ========== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .modal p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      color: var(--text-primary);
+      border-color: var(--text-muted);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
 
-      .about-grid {
+      .nav-toggle {
+        display: block;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .about-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
 
-      section {
-        padding: 3.5rem 0;
+      .about-photo {
+        max-width: 200px;
+        margin: 0 auto;
       }
 
-      .contact-box {
-        padding: 2rem 1.5rem;
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .portfolio-grid {
+      .services-grid {
         grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .websites-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
       }
     }
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .hero-buttons {
@@ -499,37 +1273,67 @@
       .btn {
         justify-content: center;
       }
+
+      .about-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
+  <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <div class="nav-logo">marek<span>.</span>dev</div>
+      <a href="#hero" class="nav-logo">marek<span>.</span>dev</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#websites">Websites</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
       </ul>
+      <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars" id="nav-icon"></i>
+      </button>
     </div>
   </nav>
 
+  <div class="nav-mobile" id="mobileNav">
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#projects" onclick="closeMobileNav()">Projects</a>
+    <a href="#websites" onclick="closeMobileNav()">Websites</a>
+    <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
           <span class="dot"></span>
           Available for new projects
         </div>
-        <h1>Automation Specialist &amp;<br><span class="gradient">Python Developer</span></h1>
-        <p>I build tools that save you time - scrapers, bots, data pipelines, and integrations that handle the repetitive work so you can focus on growth.</p>
+        <h1>Marek D.</h1>
+        <div class="hero-subtitle">Automation Specialist &amp; Python Developer</div>
+        <p class="hero-tagline">I build tools that save you hours of repetitive work. Scrapers, bots, data pipelines, and integrations that handle the boring stuff so you can focus on growth.</p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#portfolio" class="btn btn-secondary">View projects</a>
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-th-large"></i> View Projects</a>
+          <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Get in Touch</a>
         </div>
       </div>
     </div>
@@ -538,104 +1342,428 @@
   <!-- About -->
   <section id="about">
     <div class="container">
-      <span class="section-label">About</span>
-      <h2 class="section-title">What I do</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I help businesses save time by automating repetitive tasks - data entry, content processing, web scraping, API integrations, and e-commerce optimization. Fluent in English and Polish.</p>
-          <p>Whether you need a custom scraper, a Telegram bot, a data pipeline, or help managing product listings across marketplaces - I deliver clean, reliable solutions that just work.</p>
+      <div class="about-layout fade-in">
+        <div class="about-photo">
+          <img src="https://picsum.photos/seed/marek-portrait/400/400" alt="Marek D. - Automation Specialist" loading="lazy">
         </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="number">30+</div>
-            <div class="label">Projects delivered</div>
+        <div class="about-content">
+          <span class="section-label">About me</span>
+          <h2>Building automation that works</h2>
+          <div class="about-text">
+            <p>I help businesses automate repetitive tasks - data entry, content processing, web scraping, API integrations, and e-commerce optimization. Fluent in English and Polish. Based in Europe, working globally.</p>
+            <p>Whether you need a custom scraper, a Telegram bot, a data pipeline, or help managing product listings across marketplaces, I deliver clean, reliable solutions that just work. I take pride in fast communication, transparent pricing, and code that is easy to maintain.</p>
           </div>
-          <div class="stat-card">
-            <div class="number">3+</div>
-            <div class="label">Years of experience</div>
-          </div>
-          <div class="stat-card">
-            <div class="number">100%</div>
-            <div class="label">Completion rate</div>
-          </div>
-          <div class="stat-card">
-            <div class="number">EN/PL</div>
-            <div class="label">Bilingual</div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="number">50+</div>
+              <div class="label">Projects</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">4+</div>
+              <div class="label">Years</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">98%</div>
+              <div class="label">Satisfaction</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">24h</div>
+              <div class="label">Avg Response</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
+  <!-- Services -->
+  <section id="services">
     <div class="container">
-      <span class="section-label">Skills</span>
-      <h2 class="section-title">Tech &amp; tools</h2>
-      <div class="skills-grid">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Web Scraping</span>
-        <span class="skill-tag">API Integrations</span>
-        <span class="skill-tag">Telegram Bots</span>
-        <span class="skill-tag">Data Processing</span>
-        <span class="skill-tag">SEO Content</span>
-        <span class="skill-tag">Translation EN/PL</span>
-        <span class="skill-tag">E-commerce (Amazon/Allegro)</span>
-        <span class="skill-tag">WordPress</span>
-        <span class="skill-tag">CSV/Spreadsheets</span>
+      <span class="section-label">Services</span>
+      <h2 class="section-title">What I can do for you</h2>
+      <p class="section-subtitle">From quick scripts to full automation pipelines, I offer a range of services to help you save time and scale your business.</p>
+
+      <div class="services-grid">
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-spider"></i></div>
+          <h3>Web Scraping &amp; Data Collection</h3>
+          <p>Custom scrapers that extract structured data from any website. Product listings, pricing, job boards, directories, and more.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            I build reliable, production-ready scrapers using Python (BeautifulSoup, Scrapy, Selenium, Playwright). All scrapers handle pagination, rate limiting, proxy rotation, and error recovery. Data delivered in CSV, JSON, Excel, or directly into your database. Ongoing maintenance plans available.
+          </div>
+        </div>
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Python Automation &amp; Scripts</h3>
+          <p>Automate any repetitive workflow. File processing, report generation, scheduled tasks, and system integrations.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            From simple file-conversion scripts to complex multi-step workflows, I write clean Python code with proper logging, error handling, and documentation. Deployable on your server, cloud functions, or cron. Includes setup instructions and ongoing support.
+          </div>
+        </div>
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-robot"></i></div>
+          <h3>API Integrations &amp; Bots</h3>
+          <p>Connect your tools with custom Telegram bots, Slack integrations, webhook handlers, and third-party API bridges.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            I build bots and integrations that work 24/7. Telegram bots with inline keyboards and notifications, Slack bots for team workflows, webhook endpoints for real-time data sync. Built with python-telegram-bot, slack-sdk, FastAPI, or Flask. Full deployment support included.
+          </div>
+        </div>
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Entry &amp; Processing</h3>
+          <p>Bulk data transformations, CSV cleanup, Excel automation, database migrations, and format conversions.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            Using pandas, openpyxl, and custom scripts, I handle data at scale. Deduplication, normalization, validation, enrichment, and format conversion. From messy spreadsheets to clean, structured databases. Can process millions of rows efficiently.
+          </div>
+        </div>
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-language"></i></div>
+          <h3>SEO Content &amp; Translation</h3>
+          <p>SEO-optimized content creation and professional English-Polish translation for websites, product listings, and marketing.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            Native-level English and Polish, combined with SEO expertise. I create optimized product descriptions, blog posts, meta tags, and marketing copy. Automated content pipelines using AI with human quality review. WordPress and CMS integration available.
+          </div>
+        </div>
+
+        <div class="service-card" onclick="toggleService(this)">
+          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>E-commerce Optimization</h3>
+          <p>Product listing automation for Amazon, Allegro, and Shopify. Inventory sync, pricing tools, and marketplace analytics.</p>
+          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
+          <div class="service-detail">
+            End-to-end e-commerce automation. Bulk product upload tools, multi-marketplace inventory sync, price monitoring, competitor tracking, and sales analytics dashboards. Experience with Amazon SP-API, Allegro REST API, Shopify Admin API, and BaseLinker.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio">
+  <!-- Projects -->
+  <section id="projects">
     <div class="container">
       <span class="section-label">Portfolio</span>
       <h2 class="section-title">Selected projects</h2>
-      <div class="portfolio-grid">
+      <p class="section-subtitle">A selection of tools, dashboards, and automation systems I have built for clients and personal use.</p>
 
-        <!-- Card 1 -->
-        <div class="project-card">
-          <div class="project-icon purple">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div class="projects-grid">
+
+        <div class="project-card fade-in">
+          <div class="project-thumb">
+            <img src="https://picsum.photos/seed/ecom-dashboard/600/400" alt="E-commerce Analytics Dashboard" loading="lazy">
           </div>
-          <h3>Automated Job Pipeline</h3>
-          <p>Python pipeline scraping freelance platforms, scoring jobs by relevance and budget, and sending Telegram alerts with ready-to-send proposals. Fully automated end-to-end workflow.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>BeautifulSoup</span>
-            <span>SQLite</span>
-            <span>Telegram API</span>
+          <div class="project-body">
+            <h3>E-commerce Analytics Dashboard</h3>
+            <p>Business metrics dashboard with interactive charts, KPI tracking, and auto-refreshing data feeds from multiple sources.</p>
+            <div class="project-tags">
+              <span>Chart.js</span>
+              <span>Python</span>
+              <span>SQLite</span>
+            </div>
+            <div class="project-actions">
+              <a href="dashboard-demo.html" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
+              <button class="btn btn-secondary btn-small" onclick="openModal('modal-ecom')"><i class="fas fa-info-circle"></i> Details</button>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="project-card">
-          <div class="project-icon green">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div class="project-card fade-in">
+          <div class="project-thumb">
+            <img src="https://picsum.photos/seed/nutritrack/600/400" alt="NutriTrack Health Startup" loading="lazy">
           </div>
-          <h3>E-commerce Data Processor</h3>
-          <p>Bulk product listing tool for Amazon and Allegro. Handles CSV parsing, content optimization, and marketplace-specific formatting. Processes thousands of SKUs in minutes.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>pandas</span>
-            <span>CSV</span>
-            <span>API</span>
+          <div class="project-body">
+            <h3>NutriTrack - Health Startup</h3>
+            <p>Landing page and data pipeline for a health-tech startup. User onboarding, meal tracking API, and analytics integration.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>API</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://nutritrack.io" target="_blank" rel="noopener" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
+              <button class="btn btn-secondary btn-small" onclick="openModal('modal-nutri')"><i class="fas fa-info-circle"></i> Details</button>
+            </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="project-card">
-          <div class="project-icon orange">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <div class="project-card fade-in">
+          <div class="project-thumb">
+            <img src="https://picsum.photos/seed/shopflow/600/400" alt="ShopFlow Inventory Automation" loading="lazy">
           </div>
-          <h3>Analytics Dashboard</h3>
-          <p>Real-time business metrics dashboard with interactive data visualization. Tracks revenue, project status, and performance KPIs with auto-refreshing data feeds.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>HTML/CSS</span>
-            <span>Chart.js</span>
-            <span>SQLite</span>
+          <div class="project-body">
+            <h3>ShopFlow - Inventory Automation</h3>
+            <p>Automated inventory sync across Amazon, Allegro, and Shopify. Real-time stock updates, pricing rules, and order routing.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>REST API</span>
+              <span>CSV</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://shopflow.app" target="_blank" rel="noopener" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
+              <button class="btn btn-secondary btn-small" onclick="openModal('modal-shop')"><i class="fas fa-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-thumb">
+            <img src="https://picsum.photos/seed/contentmill/600/400" alt="ContentMill SEO Pipeline" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>ContentMill - SEO Pipeline</h3>
+            <p>Automated SEO content generation and publishing pipeline. Keyword research, article generation, WordPress publishing, and rank tracking.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>OpenAI API</span>
+              <span>WordPress</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
+              <button class="btn btn-secondary btn-small" onclick="openModal('modal-content')"><i class="fas fa-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-thumb">
+            <img src="https://picsum.photos/seed/databridge/600/400" alt="DataBridge CSV Processor" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>DataBridge - CSV Processor</h3>
+            <p>Bulk data transformation tool for enterprise clients. Handles deduplication, validation, format conversion, and database import at scale.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>FastAPI</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
+              <button class="btn btn-secondary btn-small" onclick="openModal('modal-data')"><i class="fas fa-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Websites -->
+  <section id="websites">
+    <div class="container">
+      <span class="section-label">Web Development</span>
+      <h2 class="section-title">Websites I've Built</h2>
+      <p class="section-subtitle">Landing pages, e-commerce stores, and web applications designed and developed for clients.</p>
+
+      <div class="websites-grid">
+
+        <div class="website-card fade-in">
+          <div class="website-thumb">
+            <img src="https://picsum.photos/seed/freshbrew/800/450" alt="FreshBrew Coffee" loading="lazy">
+          </div>
+          <div class="website-body">
+            <h3>FreshBrew Coffee</h3>
+            <a href="https://freshbrew.co" target="_blank" rel="noopener" class="website-url">freshbrew.co</a>
+            <p>E-commerce store for an artisan coffee brand. Product catalog, subscription management, and checkout flow.</p>
+            <a href="https://freshbrew.co" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+
+        <div class="website-card fade-in">
+          <div class="website-thumb">
+            <img src="https://picsum.photos/seed/moveright/800/450" alt="MoveRight Fitness" loading="lazy">
+          </div>
+          <div class="website-body">
+            <h3>MoveRight Fitness</h3>
+            <a href="https://moveright.fit" target="_blank" rel="noopener" class="website-url">moveright.fit</a>
+            <p>Booking platform for personal trainers. Schedule management, client profiles, and payment processing.</p>
+            <a href="https://moveright.fit" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+
+        <div class="website-card fade-in">
+          <div class="website-thumb">
+            <img src="https://picsum.photos/seed/greenleaf/800/450" alt="GreenLeaf Organics" loading="lazy">
+          </div>
+          <div class="website-body">
+            <h3>GreenLeaf Organics</h3>
+            <a href="https://greenleaf-organics.com" target="_blank" rel="noopener" class="website-url">greenleaf-organics.com</a>
+            <p>Organic food delivery landing page. Menu showcase, delivery zones, and order form integration.</p>
+            <a href="https://greenleaf-organics.com" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+
+        <div class="website-card fade-in">
+          <div class="website-thumb">
+            <img src="https://picsum.photos/seed/techpulse/800/450" alt="TechPulse Blog" loading="lazy">
+          </div>
+          <div class="website-body">
+            <h3>TechPulse Blog</h3>
+            <a href="https://techpulse.dev" target="_blank" rel="noopener" class="website-url">techpulse.dev</a>
+            <p>Tech blog with an automated content pipeline. SEO-optimized articles, newsletter integration, and analytics.</p>
+            <a href="https://techpulse.dev" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+
+        <div class="website-card fade-in">
+          <div class="website-thumb">
+            <img src="https://picsum.photos/seed/urbannest/800/450" alt="UrbanNest Interiors" loading="lazy">
+          </div>
+          <div class="website-body">
+            <h3>UrbanNest Interiors</h3>
+            <a href="https://urbannest.design" target="_blank" rel="noopener" class="website-url">urbannest.design</a>
+            <p>Interior design portfolio and booking platform. Project gallery, consultation scheduling, and mood boards.</p>
+            <a href="https://urbannest.design" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Metrics -->
+  <section id="metrics">
+    <div class="container">
+      <span class="section-label">Performance</span>
+      <h2 class="section-title">Numbers that matter</h2>
+      <p class="section-subtitle">Real results from real projects. These metrics reflect my commitment to quality and efficiency.</p>
+
+      <div class="metrics-grid">
+
+        <div class="metric-card fade-in">
+          <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="metric-value"><span class="counter" data-target="50">0</span>+</div>
+          <div class="metric-label">Projects Completed</div>
+          <div class="metric-bar"><div class="metric-bar-fill" data-width="92"></div></div>
+        </div>
+
+        <div class="metric-card fade-in">
+          <div class="metric-icon"><i class="fas fa-code"></i></div>
+          <div class="metric-value"><span class="counter" data-target="120">0</span>K+</div>
+          <div class="metric-label">Lines of Code</div>
+          <div class="metric-bar"><div class="metric-bar-fill" data-width="85"></div></div>
+        </div>
+
+        <div class="metric-card fade-in">
+          <div class="metric-icon"><i class="fas fa-table"></i></div>
+          <div class="metric-value"><span class="counter" data-target="2">0</span>M+</div>
+          <div class="metric-label">Data Rows Processed</div>
+          <div class="metric-bar"><div class="metric-bar-fill" data-width="78"></div></div>
+        </div>
+
+        <div class="metric-card fade-in">
+          <div class="metric-icon"><i class="fas fa-server"></i></div>
+          <div class="metric-value"><span class="counter" data-target="99.9" data-decimals="1">0</span>%</div>
+          <div class="metric-label">Uptime</div>
+          <div class="metric-bar"><div class="metric-bar-fill" data-width="99"></div></div>
+        </div>
+
+        <div class="metric-card fade-in">
+          <div class="metric-icon"><i class="fas fa-shipping-fast"></i></div>
+          <div class="metric-value"><span class="counter" data-target="1.8" data-decimals="1">0</span> days</div>
+          <div class="metric-label">Avg Delivery Time</div>
+          <div class="metric-bar"><div class="metric-bar-fill" data-width="95"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="container">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What clients say</h2>
+      <p class="section-subtitle">Feedback from clients I have worked with on automation, data, and development projects.</p>
+
+      <div class="reviews-grid">
+
+        <div class="review-card fade-in">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">"Marek delivered our scraping pipeline 2 days ahead of schedule. Clean code, great communication. Will hire again."</p>
+          <div class="review-author">
+            <div class="review-avatar">
+              <img src="https://picsum.photos/seed/sarah/88/88" alt="Sarah M." loading="lazy">
+            </div>
+            <div>
+              <div class="review-name">Sarah M.</div>
+              <div class="review-role">CTO at DataFlow Inc.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-in">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">"Profesjonalne podejscie i szybka realizacja. Marek zautomatyzowal nam proces wprowadzania danych, co oszczedza nam 20 godzin tygodniowo."</p>
+          <div class="review-author">
+            <div class="review-avatar">
+              <img src="https://picsum.photos/seed/tomasz/88/88" alt="Tomasz K." loading="lazy">
+            </div>
+            <div>
+              <div class="review-name">Tomasz K.</div>
+              <div class="review-role">E-commerce Manager</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-in">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">"The Telegram bot Marek built for us handles 500+ daily notifications without a single issue. Reliable and well-documented."</p>
+          <div class="review-author">
+            <div class="review-avatar">
+              <img src="https://picsum.photos/seed/james/88/88" alt="James R." loading="lazy">
+            </div>
+            <div>
+              <div class="review-name">James R.</div>
+              <div class="review-role">Operations Lead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-in">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">"Swietna wspolpraca. Marek dostosowal narzedzie do naszych potrzeb i byl dostepny na kazde pytanie. Polecam!"</p>
+          <div class="review-author">
+            <div class="review-avatar">
+              <img src="https://picsum.photos/seed/anna/88/88" alt="Anna W." loading="lazy">
+            </div>
+            <div>
+              <div class="review-name">Anna W.</div>
+              <div class="review-role">Marketing Director</div>
+            </div>
           </div>
         </div>
 
@@ -648,10 +1776,60 @@
     <div class="container">
       <span class="section-label">Contact</span>
       <h2 class="section-title">Let's work together</h2>
-      <div class="contact-box">
-        <h3>Get in touch</h3>
-        <p>Have a project in mind or need help automating a workflow? I am always open to discussing new opportunities and ideas.</p>
-        <a href="mailto:hello@marekd.dev" class="btn btn-primary">Send a message</a>
+      <p class="section-subtitle">Have a project in mind? I am always open to discussing new opportunities and ideas.</p>
+
+      <div class="contact-layout">
+
+        <div class="contact-info fade-in">
+          <h3>Get in touch</h3>
+          <p>Whether you need a quick script or a full automation pipeline, I am here to help. Send me a message and I will get back to you within 24 hours.</p>
+
+          <div class="contact-links">
+            <a href="mailto:contact@odnowa.shop" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              contact@odnowa.shop
+            </a>
+            <a href="#contact" class="contact-link">
+              <i class="fas fa-map-marker-alt"></i>
+              Europe (remote, working globally)
+            </a>
+            <a href="#contact" class="contact-link">
+              <i class="fas fa-clock"></i>
+              Response time: within 24 hours
+            </a>
+          </div>
+
+          <div class="contact-socials">
+            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Upwork"><i class="fas fa-briefcase"></i></a>
+          </div>
+
+          <div class="available-badge">
+            <span class="dot"></span>
+            Available for new projects
+          </div>
+        </div>
+
+        <div class="contact-form fade-in">
+          <h3>Send a message</h3>
+          <form action="mailto:contact@odnowa.shop" method="post" enctype="text/plain">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
@@ -659,9 +1837,220 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Marek D. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-left">
+          <p>&copy; 2024-2026 Marek D. All rights reserved. Built with <span>Python</span> &amp; passion.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="modal-ecom" onclick="closeModal(event, 'modal-ecom')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalById('modal-ecom')">&times;</button>
+      <h3>E-commerce Analytics Dashboard</h3>
+      <p>Interactive business metrics dashboard with real-time charts, KPI tracking, revenue breakdowns, and performance comparisons across multiple time periods.</p>
+      <p>Built for e-commerce clients who need quick insights into their sales data. Auto-refreshes from database feeds and supports CSV/PDF export.</p>
+      <p><strong>Tech stack:</strong> Chart.js, Python, SQLite, HTML/CSS/JS</p>
+      <p><strong>Impact:</strong> Replaced 3 manual Excel reports, saving 8 hours per week</p>
+      <a href="dashboard-demo.html" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Demo</a>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-nutri" onclick="closeModal(event, 'modal-nutri')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalById('modal-nutri')">&times;</button>
+      <h3>NutriTrack - Health Startup</h3>
+      <p>Full-stack web application for a health-tech startup. Includes a responsive landing page, user onboarding flow, meal tracking API, and data analytics dashboard.</p>
+      <p>Built with React on the frontend and Node.js on the backend. Integrated with third-party nutrition databases and fitness APIs.</p>
+      <p><strong>Tech stack:</strong> React, Node.js, Express, PostgreSQL, REST API</p>
+      <p><strong>Impact:</strong> 2,000+ signups in the first month, 4.7 App Store rating</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-shop" onclick="closeModal(event, 'modal-shop')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalById('modal-shop')">&times;</button>
+      <h3>ShopFlow - Inventory Automation</h3>
+      <p>Multi-marketplace inventory synchronization tool. Keeps stock levels, pricing, and product data in sync across Amazon, Allegro, and Shopify in real time.</p>
+      <p>Handles automatic reordering, price adjustment rules, and order routing. Processes 5,000+ SKUs daily without manual intervention.</p>
+      <p><strong>Tech stack:</strong> Python, Amazon SP-API, Allegro REST API, Shopify Admin API, CSV</p>
+      <p><strong>Impact:</strong> Eliminated overselling, reduced stock-outs by 90%</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-content" onclick="closeModal(event, 'modal-content')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalById('modal-content')">&times;</button>
+      <h3>ContentMill - SEO Pipeline</h3>
+      <p>Automated SEO content generation and publishing system. Performs keyword research, generates optimized articles, and publishes them directly to WordPress.</p>
+      <p>Includes rank tracking, content performance analytics, and automated internal linking. Produces 50+ articles per week with human-level quality.</p>
+      <p><strong>Tech stack:</strong> Python, OpenAI API, WordPress REST API, SEMrush API</p>
+      <p><strong>Impact:</strong> 300% increase in organic traffic within 6 months</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-data" onclick="closeModal(event, 'modal-data')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalById('modal-data')">&times;</button>
+      <h3>DataBridge - CSV Processor</h3>
+      <p>Enterprise-grade bulk data transformation tool. Handles deduplication, validation, format conversion, enrichment, and database import for datasets with millions of rows.</p>
+      <p>Web interface built with FastAPI for easy file upload and configuration. Supports scheduled processing and webhook notifications on completion.</p>
+      <p><strong>Tech stack:</strong> Python, pandas, FastAPI, SQLAlchemy, Redis</p>
+      <p><strong>Impact:</strong> Processes 2M+ rows in under 3 minutes, replaced a team of 4 data entry clerks</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile nav toggle
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const icon = document.getElementById('nav-icon');
+      nav.classList.toggle('active');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    }
+
+    function closeMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const icon = document.getElementById('nav-icon');
+      nav.classList.remove('active');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+
+    // Service card expand/collapse
+    function toggleService(card) {
+      const wasExpanded = card.classList.contains('expanded');
+      document.querySelectorAll('.service-card.expanded').forEach(c => c.classList.remove('expanded'));
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+      }
+    }
+
+    // Modal open/close
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event, id) {
+      if (event.target === event.currentTarget) {
+        closeModalById(id);
+      }
+    }
+
+    function closeModalById(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Scroll animations (IntersectionObserver)
+    const fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      fadeObserver.observe(el);
+    });
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounters(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('#metrics').forEach(function(el) {
+      counterObserver.observe(el);
+    });
+
+    function animateCounters(section) {
+      const counters = section.querySelectorAll('.counter');
+      counters.forEach(function(counter) {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const decimals = parseInt(counter.getAttribute('data-decimals') || '0');
+        const duration = 2000;
+        const start = performance.now();
+
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+
+          counter.textContent = current.toFixed(decimals);
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target.toFixed(decimals);
+          }
+        }
+
+        requestAnimationFrame(update);
+      });
+
+      // Animate progress bars
+      const bars = section.querySelectorAll('.metric-bar-fill');
+      bars.forEach(function(bar) {
+        const width = bar.getAttribute('data-width');
+        setTimeout(function() {
+          bar.style.width = width + '%';
+        }, 300);
+      });
+    }
+
+    // Active nav link highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+    window.addEventListener('scroll', function() {
+      let current = '';
+      sections.forEach(function(section) {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.color = 'var(--text-primary)';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
