@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marek D. - Web, SEO &amp; Automation Expert</title>
+  <title>Marek D. - Strony internetowe, SEO i Automatyzacja</title>
+  <meta name="description" content="Pomagam malym i srednim firmom zdobywac wiecej klientow przez piekne strony, lepsze SEO, B2B lead gen i AI automatyzacje. 7+ lat doswiadczenia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,7 +33,8 @@
       --green: #34d399;
       --green-glow: rgba(52, 211, 153, 0.15);
       --orange: #fb923c;
-      --purple: #a78bfa;
+      --red: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.15);
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 12px;
       --radius-lg: 16px;
@@ -104,7 +106,7 @@
 
     .nav-links {
       display: flex;
-      gap: 1.75rem;
+      gap: 1.5rem;
       list-style: none;
       align-items: center;
     }
@@ -117,6 +119,24 @@
     }
 
     .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-toggle {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.2s;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
       color: var(--text-primary);
     }
 
@@ -178,6 +198,14 @@
 
     .nav-mobile a:hover {
       color: var(--text-primary);
+    }
+
+    .nav-mobile-actions {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border);
     }
 
     /* ========== LAYOUT ========== */
@@ -266,12 +294,6 @@
       transform: translateY(-2px);
     }
 
-    .btn-small {
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      border-radius: 6px;
-    }
-
     .btn-green {
       background: var(--green);
       color: #0a0a0a;
@@ -353,29 +375,39 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      font-weight: 600;
-      background: linear-gradient(135deg, var(--accent-light), var(--green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 1.25rem;
     }
 
-    .hero .hero-tagline {
-      font-size: 1.1rem;
+    .hero .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--text-secondary);
-      max-width: 540px;
-      margin-bottom: 2.25rem;
+      max-width: 560px;
+      margin-bottom: 1.5rem;
       line-height: 1.7;
+    }
+
+    .hero .hero-stats {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2.25rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero .hero-stats span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero .hero-stats i {
+      color: var(--green);
+      font-size: 0.7rem;
     }
 
     .hero-buttons {
@@ -384,90 +416,75 @@
       flex-wrap: wrap;
     }
 
-    /* ========== ABOUT ========== */
-    #about {
+    /* ========== PROBLEMS ========== */
+    #problems {
       border-top: 1px solid var(--border);
       background: var(--bg-secondary);
     }
 
-    .about-layout {
+    .problems-grid {
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 3.5rem;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 2px solid var(--border);
-      position: relative;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%);
-      transition: filter 0.4s;
-    }
-
-    .about-photo:hover img {
-      filter: grayscale(30%);
-    }
-
-    .about-content h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .about-text {
-      color: var(--text-secondary);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .about-text p + p {
-      margin-top: 1rem;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-
-    .stat-card {
+    .problem-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      text-align: center;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
       transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .stat-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
-    .stat-card .number {
-      font-size: 1.6rem;
+    .problem-card:hover {
+      border-color: var(--red);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .problem-card:hover::before {
+      opacity: 1;
+    }
+
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      background: var(--red-glow);
+      color: var(--red);
+    }
+
+    .problem-card h3 {
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--accent-light);
+      margin-bottom: 0.65rem;
     }
 
-    .stat-card .label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
     }
 
     /* ========== SERVICES ========== */
@@ -477,7 +494,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -487,7 +504,6 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 2rem;
-      cursor: pointer;
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
@@ -530,297 +546,215 @@
     }
 
     .service-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 700;
       margin-bottom: 0.65rem;
-      letter-spacing: -0.01em;
     }
 
     .service-card p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .service-card .learn-more {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: gap 0.2s;
-    }
-
-    .service-card:hover .learn-more {
-      gap: 0.6rem;
-    }
-
-    .service-detail {
-      display: none;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
       line-height: 1.7;
+      margin-bottom: 1.25rem;
     }
 
-    .service-card.expanded .service-detail {
-      display: block;
+    .service-price {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      background: var(--green-glow);
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
     }
 
-    /* ========== PROJECTS ========== */
-    #projects {
+    /* ========== RESULTS ========== */
+    #results {
       border-top: 1px solid var(--border);
       background: var(--bg-secondary);
     }
 
-    .projects-grid {
+    .results-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
 
-    .project-card {
+    .result-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      padding: 2rem;
       transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
     }
 
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
+    .result-card:hover {
+      border-color: var(--green);
+      transform: translateY(-3px);
       box-shadow: var(--shadow);
     }
 
-    .project-thumb {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      position: relative;
+    .result-card .result-metric {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 0.25rem;
     }
 
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .project-card:hover .project-thumb img {
-      transform: scale(1.05);
-    }
-
-    .project-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-body h3 {
-      font-size: 1.1rem;
+    .result-card h3 {
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
+      color: var(--text-primary);
     }
 
-    .project-body p {
+    .result-card p {
       font-size: 0.88rem;
       color: var(--text-secondary);
       line-height: 1.6;
-      flex: 1;
-      margin-bottom: 1rem;
     }
 
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.15rem;
-    }
-
-    .project-tags span {
-      font-size: 0.68rem;
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--accent);
       background: var(--accent-glow);
-      padding: 0.25rem 0.55rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 4px;
+      margin-bottom: 1rem;
     }
 
-    .project-actions {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .project-actions .btn {
-      flex: 1;
-      justify-content: center;
-      padding: 0.55rem 0.75rem;
-      font-size: 0.8rem;
-    }
-
-    /* ========== WEBSITES ========== */
-    #websites {
+    /* ========== STATS BAR ========== */
+    #stats-bar {
       border-top: 1px solid var(--border);
-    }
-
-    .websites-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .website-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-
-    .website-card:hover {
-      border-color: var(--green);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .website-thumb {
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .website-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .website-card:hover .website-thumb img {
-      transform: scale(1.05);
-    }
-
-    .website-body {
-      padding: 1.5rem;
-    }
-
-    .website-body h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .website-url {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 0.65rem;
-      display: block;
-    }
-
-    .website-body p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.15rem;
-    }
-
-    /* ========== METRICS ========== */
-    #metrics {
-      border-top: 1px solid var(--border);
-      background: var(--bg-secondary);
+      padding: 3.5rem 0;
       position: relative;
       overflow: hidden;
     }
 
-    #metrics::before {
+    #stats-bar::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 600px;
-      height: 600px;
+      height: 300px;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .metrics-grid {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-      margin-top: 2rem;
       position: relative;
       z-index: 1;
     }
 
-    .metric-card {
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem 1.25rem;
-      text-align: center;
+      border-radius: var(--radius);
       transition: all 0.3s;
     }
 
-    .metric-card:hover {
+    .stat-item:hover {
       border-color: var(--accent);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    .metric-icon {
-      font-size: 1.5rem;
-      color: var(--accent-light);
-      margin-bottom: 0.75rem;
-    }
-
-    .metric-value {
-      font-size: 2rem;
+    .stat-value {
+      font-size: 1.8rem;
       font-weight: 800;
+      color: var(--accent-light);
       letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
     }
 
-    .metric-value .counter {
-      display: inline;
-    }
-
-    .metric-label {
+    .stat-label {
       font-size: 0.78rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      margin-top: 0.25rem;
     }
 
-    .metric-bar {
-      width: 100%;
-      height: 4px;
-      background: var(--border);
-      border-radius: 4px;
-      margin-top: 1rem;
+    /* ========== PORTFOLIO TILES ========== */
+    #portfolio {
+      border-top: 1px solid var(--border);
+    }
+
+    .portfolio-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .portfolio-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
-    .metric-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--green));
-      width: 0%;
-      transition: width 1.5s ease-out;
+    .portfolio-tile:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-tile img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-tile-info {
+      padding: 0.75rem 1rem;
+    }
+
+    .portfolio-tile-info h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .portfolio-tile-info span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .portfolio-tile a {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-tiles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-tiles {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ========== REVIEWS ========== */
@@ -841,7 +775,6 @@
       border-radius: var(--radius-lg);
       padding: 2rem;
       transition: all 0.3s;
-      position: relative;
     }
 
     .review-card:hover {
@@ -863,7 +796,6 @@
       line-height: 1.75;
       margin-bottom: 1.5rem;
       font-style: italic;
-      position: relative;
       padding-left: 1rem;
       border-left: 2px solid var(--accent);
     }
@@ -878,15 +810,15 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      overflow: hidden;
+      background: var(--bg-card-hover);
       border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
       flex-shrink: 0;
-    }
-
-    .review-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     .review-name {
@@ -899,112 +831,115 @@
       color: var(--text-muted);
     }
 
-    /* ========== CONTACT ========== */
-    #contact {
+    /* ========== ABOUT ========== */
+    #about {
       border-top: 1px solid var(--border);
       background: var(--bg-secondary);
     }
 
-    .contact-layout {
+    .about-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 200px 1fr;
       gap: 3rem;
-      margin-top: 2rem;
+      align-items: center;
     }
 
-    .contact-info h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 3rem;
     }
 
-    .contact-info p {
+    .about-content p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 1.75rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
 
-    .contact-links {
+    /* ========== CONTACT ========== */
+    #contact {
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-content {
+      max-width: 600px;
+    }
+
+    .contact-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-methods {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       margin-bottom: 2rem;
     }
 
-    .contact-link {
+    .contact-method {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      transition: color 0.2s;
-    }
-
-    .contact-link:hover {
-      color: var(--accent-light);
-    }
-
-    .contact-link i {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 1rem;
+      padding: 1.25rem;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9rem;
+      border-radius: var(--radius);
+      transition: all 0.3s;
+    }
+
+    .contact-method:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .contact-method i {
+      font-size: 1.25rem;
       color: var(--accent);
-      transition: all 0.2s;
+      width: 24px;
+      text-align: center;
     }
 
-    .contact-link:hover i {
-      border-color: var(--accent);
-      background: var(--accent-glow);
+    .contact-method .method-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .contact-socials {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .contact-socials a {
-      width: 42px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      transition: all 0.2s;
-    }
-
-    .contact-socials a:hover {
-      border-color: var(--accent);
+    .contact-method .method-value {
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--accent-light);
-      background: var(--accent-glow);
-      transform: translateY(-2px);
     }
 
-    .available-badge {
+    .contact-method .method-value a {
+      color: var(--accent-light);
+    }
+
+    .contact-method .method-value a:hover {
+      color: var(--green);
+    }
+
+    .contact-note {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.25);
-      color: var(--green);
-      border-radius: 100px;
-      padding: 0.5rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .available-badge .dot {
+    .contact-note .dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
@@ -1012,66 +947,11 @@
       animation: pulse 2s ease-in-out infinite;
     }
 
-    .contact-form {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-    }
-
-    .contact-form h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.15rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 0.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      background: var(--bg-primary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-family: var(--font);
-      font-size: 0.92rem;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-submit {
-      width: 100%;
-      justify-content: center;
-    }
-
     /* ========== FOOTER ========== */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2.5rem 0;
+      background: var(--bg-secondary);
+      padding: 3rem 0;
     }
 
     .footer-inner {
@@ -1079,16 +959,13 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .footer-left p {
       font-size: 0.82rem;
       color: var(--text-muted);
-    }
-
-    .footer-left p span {
-      color: var(--accent);
+      margin-top: 0.25rem;
     }
 
     .footer-links {
@@ -1107,7 +984,12 @@
       color: var(--text-primary);
     }
 
-    /* ========== SCROLL ANIMATIONS ========== */
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== ANIMATIONS ========== */
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
@@ -1119,87 +1001,8 @@
       transform: translateY(0);
     }
 
-    /* ========== MODAL ========== */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      max-width: 560px;
-      width: 100%;
-      position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .modal p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--bg-primary);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: all 0.2s;
-    }
-
-    .modal-close:hover {
-      color: var(--text-primary);
-      border-color: var(--text-muted);
-    }
-
     /* ========== RESPONSIVE ========== */
-    @media (max-width: 1024px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-links {
         display: none;
       }
@@ -1208,47 +1011,25 @@
         display: block;
       }
 
-      section {
-        padding: 4rem 0;
+      .problems-grid,
+      .services-grid,
+      .results-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        text-align: center;
       }
 
       .about-photo {
         max-width: 200px;
         margin: 0 auto;
-      }
-
-      .about-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .websites-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
       }
 
       .footer-inner {
@@ -1257,29 +1038,36 @@
       }
 
       .footer-links {
+        flex-wrap: wrap;
         justify-content: center;
+      }
+
+      section {
+        padding: 4rem 0;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .hero .hero-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
       }
 
       .hero-buttons {
         flex-direction: column;
       }
 
-      .btn {
+      .hero-buttons .btn {
         justify-content: center;
-      }
-
-      .about-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .metrics-grid {
-        grid-template-columns: 1fr 1fr;
       }
 
       .section-title {
@@ -1290,479 +1078,420 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- ===== NAVIGATION ===== -->
   <nav>
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">marek<span>.</span>dev</a>
+      <a href="#" class="nav-logo">Marek <span>D.</span></a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#websites">Websites</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+        <li><a href="#problems" data-lang="pl">O nas</a><a href="#problems" data-lang="en" style="display:none">About</a></li>
+        <li><a href="#services" data-lang="pl">Uslugi</a><a href="#services" data-lang="en" style="display:none">Services</a></li>
+        <li><a href="#results" data-lang="pl">Realizacje</a><a href="#results" data-lang="en" style="display:none">Results</a></li>
+        <li><a href="#reviews" data-lang="pl">Opinie</a><a href="#reviews" data-lang="en" style="display:none">Reviews</a></li>
+        <li><a href="#contact" data-lang="pl">Kontakt</a><a href="#contact" data-lang="en" style="display:none">Contact</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()" id="lang-toggle">EN</button></li>
+        <li><a href="#contact" class="nav-cta" data-lang="pl">Darmowa analiza</a><a href="#contact" class="nav-cta" data-lang="en" style="display:none">Free analysis</a></li>
       </ul>
-      <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
-        <i class="fas fa-bars" id="nav-icon"></i>
+      <button class="nav-toggle" onclick="toggleMobile()" aria-label="Menu">
+        <i class="fas fa-bars"></i>
       </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#problems" onclick="closeMobile()" data-lang="pl">O nas</a>
+      <a href="#problems" onclick="closeMobile()" data-lang="en" style="display:none">About</a>
+      <a href="#services" onclick="closeMobile()" data-lang="pl">Uslugi</a>
+      <a href="#services" onclick="closeMobile()" data-lang="en" style="display:none">Services</a>
+      <a href="#results" onclick="closeMobile()" data-lang="pl">Realizacje</a>
+      <a href="#results" onclick="closeMobile()" data-lang="en" style="display:none">Results</a>
+      <a href="#reviews" onclick="closeMobile()" data-lang="pl">Opinie</a>
+      <a href="#reviews" onclick="closeMobile()" data-lang="en" style="display:none">Reviews</a>
+      <a href="#contact" onclick="closeMobile()" data-lang="pl">Kontakt</a>
+      <a href="#contact" onclick="closeMobile()" data-lang="en" style="display:none">Contact</a>
+      <div class="nav-mobile-actions">
+        <button class="lang-toggle" onclick="toggleLang()" id="lang-toggle-mobile">EN</button>
+        <a href="#contact" class="nav-cta" onclick="closeMobile()" data-lang="pl">Darmowa analiza</a>
+        <a href="#contact" class="nav-cta" onclick="closeMobile()" data-lang="en" style="display:none">Free analysis</a>
+      </div>
     </div>
   </nav>
 
-  <div class="nav-mobile" id="mobileNav">
-    <a href="#about" onclick="closeMobileNav()">About</a>
-    <a href="#services" onclick="closeMobileNav()">Services</a>
-    <a href="#projects" onclick="closeMobileNav()">Projects</a>
-    <a href="#websites" onclick="closeMobileNav()">Websites</a>
-    <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  </div>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
+  <!-- ===== HERO ===== -->
+  <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid-lines"></div>
     <div class="container">
       <div class="hero-content">
+
         <div class="hero-badge">
           <span class="dot"></span>
-          Available for new projects
+          <span data-lang="pl">Dostepny - odpisuje w ciagu 24h</span>
+          <span data-lang="en" style="display:none">Available - I reply within 24h</span>
         </div>
-        <h1>Marek D.</h1>
-        <div class="hero-subtitle">Web, SEO &amp; Automation Expert</div>
-        <p class="hero-tagline">7+ years building websites, optimizing search rankings, and automating business processes. From landing pages to data pipelines, I deliver results that grow your business.</p>
+
+        <h1 data-lang="pl">Tracisz klientow, bo nie widac Cie w internecie?</h1>
+        <h1 data-lang="en" style="display:none">Losing customers because they can't find you online?</h1>
+
+        <p class="hero-subtitle" data-lang="pl">Pomagam malym i srednim firmom zdobywac wiecej klientow przez piekne strony, lepsze SEO, B2B lead gen i AI automatyzacje.</p>
+        <p class="hero-subtitle" data-lang="en" style="display:none">I help small and medium businesses get more customers through beautiful websites, better SEO and automation.</p>
+
+        <div class="hero-stats" data-lang="pl">
+          <span><i class="fas fa-circle"></i> 7+ lat doswiadczenia</span>
+          <span><i class="fas fa-circle"></i> 80+ zrealizowanych projektow</span>
+          <span><i class="fas fa-circle"></i> 95% zadowolonych klientow</span>
+        </div>
+        <div class="hero-stats" data-lang="en" style="display:none">
+          <span><i class="fas fa-circle"></i> 7+ years of experience</span>
+          <span><i class="fas fa-circle"></i> 80+ completed projects</span>
+          <span><i class="fas fa-circle"></i> 95% satisfied clients</span>
+        </div>
+
         <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary"><i class="fas fa-th-large"></i> View Projects</a>
-          <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Get in Touch</a>
+          <a href="mailto:alex.afshar76@gmail.com?subject=Zapytanie%20ze%20strony" class="btn btn-primary" data-lang="pl"><i class="fas fa-search"></i> Darmowa analiza Twojej strony</a>
+          <a href="mailto:alex.afshar76@gmail.com?subject=Website%20Inquiry" class="btn btn-primary" data-lang="en" style="display:none"><i class="fas fa-search"></i> Free website analysis</a>
+          <a href="#results" class="btn btn-secondary" data-lang="pl"><i class="fas fa-arrow-right"></i> Zobacz realizacje</a>
+          <a href="#results" class="btn btn-secondary" data-lang="en" style="display:none"><i class="fas fa-arrow-right"></i> See our results</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
+  <!-- ===== PROBLEMS ===== -->
+  <section id="problems">
     <div class="container">
-      <div class="about-layout fade-in">
-        <div class="about-photo">
-          <img src="https://picsum.photos/seed/marek-portrait/400/400" alt="Marek D. - Web, SEO &amp; Automation Expert" loading="lazy">
+
+      <div class="section-label" data-lang="pl">Czy to Twoj problem?</div>
+      <div class="section-label" data-lang="en" style="display:none">Is this your problem?</div>
+      <h2 class="section-title" data-lang="pl">Dlaczego Twoja firma traci klientow?</h2>
+      <h2 class="section-title" data-lang="en" style="display:none">Why is your business losing customers?</h2>
+
+      <div class="problems-grid">
+
+        <!-- Problem 1 -->
+        <div class="problem-card fade-in">
+          <div class="problem-icon"><i class="fas fa-globe"></i></div>
+          <h3 data-lang="pl">Nie masz strony?</h3>
+          <h3 data-lang="en" style="display:none">No website?</h3>
+          <p data-lang="pl">Klienci szukaja Twojej firmy w Google. Jesli Cie nie znajda, ida do konkurencji.</p>
+          <p data-lang="en" style="display:none">Customers search for your business on Google. If they can't find you, they go to your competitors.</p>
         </div>
-        <div class="about-content">
-          <span class="section-label">About me</span>
-          <h2>7 years of getting things done</h2>
-          <div class="about-text">
-            <p>I have been building websites, running SEO campaigns, and automating business processes for over 7 years. My experience spans web development, search engine optimization, data processing, e-commerce, content writing, and custom automation tools.</p>
-            <p>Whether you need a high-converting landing page, better Google rankings, a data pipeline, marketplace listing optimization, or a Telegram bot - I deliver clean, reliable work with fast turnaround. Fluent in English and Polish, based in Europe, working globally.</p>
-          </div>
-          <div class="about-stats">
-            <div class="stat-card">
-              <div class="number">80+</div>
-              <div class="label">Projects</div>
-            </div>
-            <div class="stat-card">
-              <div class="number">7+</div>
-              <div class="label">Years</div>
-            </div>
-            <div class="stat-card">
-              <div class="number">98%</div>
-              <div class="label">Satisfaction</div>
-            </div>
-            <div class="stat-card">
-              <div class="number">24h</div>
-              <div class="label">Avg Response</div>
-            </div>
-          </div>
+
+        <!-- Problem 2 -->
+        <div class="problem-card fade-in">
+          <div class="problem-icon"><i class="fas fa-hourglass-half"></i></div>
+          <h3 data-lang="pl">Strona jest wolna?</h3>
+          <h3 data-lang="en" style="display:none">Slow website?</h3>
+          <p data-lang="pl">53% uzytkownikow opuszcza strone, ktora laduje sie dluzej niz 3 sekundy.</p>
+          <p data-lang="en" style="display:none">53% of users leave a website that takes more than 3 seconds to load.</p>
         </div>
+
+        <!-- Problem 3 -->
+        <div class="problem-card fade-in">
+          <div class="problem-icon"><i class="fas fa-eye-slash"></i></div>
+          <h3 data-lang="pl">Nie widac Cie w Google?</h3>
+          <h3 data-lang="en" style="display:none">Invisible on Google?</h3>
+          <p data-lang="pl">90% ludzi nie wchodzi na druga strone wynikow. Jesli nie jestes na pierwszej, nie istniejesz.</p>
+          <p data-lang="en" style="display:none">90% of people never visit the second page of results. If you're not on the first page, you don't exist.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- ===== SERVICES ===== -->
   <section id="services">
     <div class="container">
-      <span class="section-label">Services</span>
-      <h2 class="section-title">What I can do for you</h2>
-      <p class="section-subtitle">From quick scripts to full automation pipelines, I offer a range of services to help you save time and scale your business.</p>
+
+      <div class="section-label" data-lang="pl">Jak pomagamy</div>
+      <div class="section-label" data-lang="en" style="display:none">How we help</div>
+      <h2 class="section-title" data-lang="pl">Proste rozwiazania, ktore dzialaja</h2>
+      <h2 class="section-title" data-lang="en" style="display:none">Simple solutions that work</h2>
+      <p class="section-subtitle" data-lang="pl">Bez skomplikowanego jezyka. Mowisz, czego potrzebujesz, my to robimy.</p>
+      <p class="section-subtitle" data-lang="en" style="display:none">No complicated language. You tell us what you need, we make it happen.</p>
 
       <div class="services-grid">
 
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-spider"></i></div>
-          <h3>Web Scraping &amp; Data Collection</h3>
-          <p>Custom scrapers that extract structured data from any website. Product listings, pricing, job boards, directories, and more.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            I build reliable, production-ready scrapers using Python (BeautifulSoup, Scrapy, Selenium, Playwright). All scrapers handle pagination, rate limiting, proxy rotation, and error recovery. Data delivered in CSV, JSON, Excel, or directly into your database. Ongoing maintenance plans available.
-          </div>
+        <!-- Service 1 -->
+        <div class="service-card fade-in">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3 data-lang="pl">Tworzenie stron internetowych</h3>
+          <h3 data-lang="en" style="display:none">Website development</h3>
+          <p data-lang="pl">Nowoczesna, szybka strona ktora wyglada profesjonalnie i przyciaga klientow. Dziala na telefonach, tabletach i komputerach.</p>
+          <p data-lang="en" style="display:none">A modern, fast website that looks professional and attracts customers. Works on phones, tablets and computers.</p>
+          <div class="service-price" data-lang="pl"><i class="fas fa-tag"></i> od 1 500 zl</div>
+          <div class="service-price" data-lang="en" style="display:none"><i class="fas fa-tag"></i> from 1 500 PLN</div>
         </div>
 
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-cogs"></i></div>
-          <h3>Python Automation &amp; Scripts</h3>
-          <p>Automate any repetitive workflow. File processing, report generation, scheduled tasks, and system integrations.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            From simple file-conversion scripts to complex multi-step workflows, I write clean Python code with proper logging, error handling, and documentation. Deployable on your server, cloud functions, or cron. Includes setup instructions and ongoing support.
-          </div>
+        <!-- Service 2 -->
+        <div class="service-card fade-in">
+          <div class="service-icon" style="background: var(--green-glow); color: var(--green);"><i class="fas fa-search"></i></div>
+          <h3 data-lang="pl">Poprawa widocznosci w Google (SEO)</h3>
+          <h3 data-lang="en" style="display:none">Google visibility improvement (SEO)</h3>
+          <p data-lang="pl">Twoja firma na pierwszej stronie wynikow wyszukiwania. Wiecej osob Cie znajdzie, wiecej klientow do Ciebie trafi.</p>
+          <p data-lang="en" style="display:none">Your business on the first page of search results. More people find you, more customers come to you.</p>
+          <div class="service-price" data-lang="pl"><i class="fas fa-tag"></i> od 600 zl / msc</div>
+          <div class="service-price" data-lang="en" style="display:none"><i class="fas fa-tag"></i> from 600 PLN / mo</div>
         </div>
 
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-robot"></i></div>
-          <h3>API Integrations &amp; Bots</h3>
-          <p>Connect your tools with custom Telegram bots, Slack integrations, webhook handlers, and third-party API bridges.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            I build bots and integrations that work 24/7. Telegram bots with inline keyboards and notifications, Slack bots for team workflows, webhook endpoints for real-time data sync. Built with python-telegram-bot, slack-sdk, FastAPI, or Flask. Full deployment support included.
-          </div>
+        <!-- Service 3 -->
+        <div class="service-card fade-in">
+          <div class="service-icon" style="background: rgba(251, 146, 60, 0.15); color: var(--orange);"><i class="fas fa-bolt"></i></div>
+          <h3 data-lang="pl">Przyspieszanie stron</h3>
+          <h3 data-lang="en" style="display:none">Website speed optimization</h3>
+          <p data-lang="pl">Szybsza strona = wiecej klientow. Poprawiamy czas ladowania o 50-80%, zeby nikt nie uciekl.</p>
+          <p data-lang="en" style="display:none">Faster website = more customers. We improve loading time by 50-80% so nobody leaves.</p>
+          <div class="service-price" data-lang="pl"><i class="fas fa-tag"></i> od 800 zl</div>
+          <div class="service-price" data-lang="en" style="display:none"><i class="fas fa-tag"></i> from 800 PLN</div>
         </div>
 
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-database"></i></div>
-          <h3>Data Entry &amp; Processing</h3>
-          <p>Bulk data transformations, CSV cleanup, Excel automation, database migrations, and format conversions.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            Using pandas, openpyxl, and custom scripts, I handle data at scale. Deduplication, normalization, validation, enrichment, and format conversion. From messy spreadsheets to clean, structured databases. Can process millions of rows efficiently.
-          </div>
-        </div>
-
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-language"></i></div>
-          <h3>SEO Content &amp; Translation</h3>
-          <p>SEO-optimized content creation and professional English-Polish translation for websites, product listings, and marketing.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            Native-level English and Polish, combined with SEO expertise. I create optimized product descriptions, blog posts, meta tags, and marketing copy. Automated content pipelines using AI with human quality review. WordPress and CMS integration available.
-          </div>
-        </div>
-
-        <div class="service-card" onclick="toggleService(this)">
-          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-          <h3>E-commerce Optimization</h3>
-          <p>Product listing automation for Amazon, Allegro, and Shopify. Inventory sync, pricing tools, and marketplace analytics.</p>
-          <span class="learn-more">Learn more <i class="fas fa-arrow-right"></i></span>
-          <div class="service-detail">
-            End-to-end e-commerce automation. Bulk product upload tools, multi-marketplace inventory sync, price monitoring, competitor tracking, and sales analytics dashboards. Experience with Amazon SP-API, Allegro REST API, Shopify Admin API, and BaseLinker.
-          </div>
+        <!-- Service 4 -->
+        <div class="service-card fade-in">
+          <div class="service-icon" style="background: rgba(167, 139, 250, 0.15); color: #a78bfa;"><i class="fas fa-robot"></i></div>
+          <h3 data-lang="pl">Automatyzacja procesow</h3>
+          <h3 data-lang="en" style="display:none">Process automation</h3>
+          <p data-lang="pl">Oszczedz czas na powtarzalnych zadaniach - raporty, emaile, dane. Robimy to za Ciebie automatycznie.</p>
+          <p data-lang="en" style="display:none">Save time on repetitive tasks - reports, emails, data. We automate it all for you.</p>
+          <div class="service-price" data-lang="pl"><i class="fas fa-tag"></i> od 1 000 zl</div>
+          <div class="service-price" data-lang="en" style="display:none"><i class="fas fa-tag"></i> from 1 000 PLN</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects">
+  <!-- ===== RESULTS ===== -->
+  <section id="results">
     <div class="container">
-      <span class="section-label">Portfolio</span>
-      <h2 class="section-title">Selected projects</h2>
-      <p class="section-subtitle">A selection of tools, dashboards, and automation systems I have built for clients and personal use.</p>
 
-      <div class="projects-grid">
+      <div class="section-label" data-lang="pl">Efekty naszej pracy</div>
+      <div class="section-label" data-lang="en" style="display:none">Our results</div>
+      <h2 class="section-title" data-lang="pl">Liczby mowia same za siebie</h2>
+      <h2 class="section-title" data-lang="en" style="display:none">The numbers speak for themselves</h2>
 
-        <div class="project-card fade-in">
-          <div class="project-thumb">
-            <img src="https://picsum.photos/seed/ecom-dashboard/600/400" alt="E-commerce Analytics Dashboard" loading="lazy">
-          </div>
-          <div class="project-body">
-            <h3>E-commerce Analytics Dashboard</h3>
-            <p>Business metrics dashboard with interactive charts, KPI tracking, and auto-refreshing data feeds from multiple sources.</p>
-            <div class="project-tags">
-              <span>Chart.js</span>
-              <span>Python</span>
-              <span>SQLite</span>
-            </div>
-            <div class="project-actions">
-              <a href="dashboard-demo.html" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
-              <button class="btn btn-secondary btn-small" onclick="openModal('modal-ecom')"><i class="fas fa-info-circle"></i> Details</button>
-            </div>
-          </div>
+      <div class="results-grid">
+
+        <!-- Result 1 -->
+        <div class="result-card fade-in">
+          <div class="result-badge" data-lang="pl"><i class="fas fa-utensils"></i> Restauracja</div>
+          <div class="result-badge" data-lang="en" style="display:none"><i class="fas fa-utensils"></i> Restaurant</div>
+          <div class="result-metric">+65%</div>
+          <h3 data-lang="pl">Restauracja w Tarnowie</h3>
+          <h3 data-lang="en" style="display:none">Restaurant in Tarnow</h3>
+          <p data-lang="pl">Wiecej ruchu z Google w 2 miesiace. Przyspieszylismy strone z 8 do 2 sekund.</p>
+          <p data-lang="en" style="display:none">More Google traffic in 2 months. We sped up the website from 8 to 2 seconds.</p>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-thumb">
-            <img src="https://picsum.photos/seed/nutritrack/600/400" alt="NutriTrack Health Startup" loading="lazy">
-          </div>
-          <div class="project-body">
-            <h3>NutriTrack - Health Startup</h3>
-            <p>Landing page and data pipeline for a health-tech startup. User onboarding, meal tracking API, and analytics integration.</p>
-            <div class="project-tags">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>API</span>
-            </div>
-            <div class="project-actions">
-              <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
-              <button class="btn btn-secondary btn-small" onclick="openModal('modal-nutri')"><i class="fas fa-info-circle"></i> Details</button>
-            </div>
-          </div>
+        <!-- Result 2 -->
+        <div class="result-card fade-in">
+          <div class="result-badge" data-lang="pl"><i class="fas fa-spa"></i> Salon beauty</div>
+          <div class="result-badge" data-lang="en" style="display:none"><i class="fas fa-spa"></i> Beauty salon</div>
+          <div class="result-metric">3x</div>
+          <h3 data-lang="pl">Salon beauty w Kielcach</h3>
+          <h3 data-lang="en" style="display:none">Beauty salon in Kielce</h3>
+          <p data-lang="pl">Wiecej zapytan od klientow. Poprawilismy pozycje w Google i wyglad strony.</p>
+          <p data-lang="en" style="display:none">More customer inquiries. We improved Google ranking and website appearance.</p>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-thumb">
-            <img src="https://picsum.photos/seed/shopflow/600/400" alt="ShopFlow Inventory Automation" loading="lazy">
-          </div>
-          <div class="project-body">
-            <h3>ShopFlow - Inventory Automation</h3>
-            <p>Automated inventory sync across Amazon, Allegro, and Shopify. Real-time stock updates, pricing rules, and order routing.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>REST API</span>
-              <span>CSV</span>
-            </div>
-            <div class="project-actions">
-              <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
-              <button class="btn btn-secondary btn-small" onclick="openModal('modal-shop')"><i class="fas fa-info-circle"></i> Details</button>
-            </div>
-          </div>
+        <!-- Result 3 -->
+        <div class="result-card fade-in">
+          <div class="result-badge" data-lang="pl"><i class="fas fa-hotel"></i> Hotel</div>
+          <div class="result-badge" data-lang="en" style="display:none"><i class="fas fa-hotel"></i> Hotel</div>
+          <div class="result-metric">+80%</div>
+          <h3 data-lang="pl">Hotel w Kaliszu</h3>
+          <h3 data-lang="en" style="display:none">Hotel in Kalisz</h3>
+          <p data-lang="pl">Wiecej rezerwacji z telefonow. Przerobilismy strone, zeby dzialala idealnie na mobile.</p>
+          <p data-lang="en" style="display:none">More mobile bookings. We redesigned the website to work perfectly on mobile.</p>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-thumb">
-            <img src="https://picsum.photos/seed/contentmill/600/400" alt="ContentMill SEO Pipeline" loading="lazy">
-          </div>
-          <div class="project-body">
-            <h3>ContentMill - SEO Pipeline</h3>
-            <p>Automated SEO content generation and publishing pipeline. Keyword research, article generation, WordPress publishing, and rank tracking.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>OpenAI API</span>
-              <span>WordPress</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
-              <button class="btn btn-secondary btn-small" onclick="openModal('modal-content')"><i class="fas fa-info-circle"></i> Details</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card fade-in">
-          <div class="project-thumb">
-            <img src="https://picsum.photos/seed/databridge/600/400" alt="DataBridge CSV Processor" loading="lazy">
-          </div>
-          <div class="project-body">
-            <h3>DataBridge - CSV Processor</h3>
-            <p>Bulk data transformation tool for enterprise clients. Handles deduplication, validation, format conversion, and database import at scale.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>pandas</span>
-              <span>FastAPI</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Live</a>
-              <button class="btn btn-secondary btn-small" onclick="openModal('modal-data')"><i class="fas fa-info-circle"></i> Details</button>
-            </div>
-          </div>
+        <!-- Result 4 -->
+        <div class="result-card fade-in">
+          <div class="result-badge" data-lang="pl"><i class="fas fa-hospital"></i> Klinika</div>
+          <div class="result-badge" data-lang="en" style="display:none"><i class="fas fa-hospital"></i> Clinic</div>
+          <div class="result-metric">-35%</div>
+          <h3 data-lang="pl">Klinika w Radomiu</h3>
+          <h3 data-lang="en" style="display:none">Clinic in Radom</h3>
+          <p data-lang="pl">-35% straconych leadow. Mniej osob ucieka ze strony. Dodalismy zabezpieczenia i poprawilismy tresc.</p>
+          <p data-lang="en" style="display:none">-35% lost leads. Fewer people leave the site. We added security and improved content.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Websites -->
-  <section id="websites">
+  <!-- ===== STATS BAR ===== -->
+  <section id="stats-bar">
     <div class="container">
-      <span class="section-label">Web Development</span>
-      <h2 class="section-title">Websites I've Built</h2>
-      <p class="section-subtitle">Landing pages, e-commerce stores, and web applications designed and developed for clients.</p>
+      <div class="stats-grid">
 
-      <div class="websites-grid">
-
-        <div class="website-card fade-in">
-          <div class="website-thumb">
-            <img src="https://picsum.photos/seed/freshbrew/800/450" alt="FreshBrew Coffee" loading="lazy">
-          </div>
-          <div class="website-body">
-            <h3>FreshBrew Coffee</h3>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="website-url">freshbrew.co</a>
-            <p>E-commerce store for an artisan coffee brand. Product catalog, subscription management, and checkout flow.</p>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
+        <div class="stat-item fade-in">
+          <div class="stat-value" data-lang="pl">100 - 20 000 &euro;</div>
+          <div class="stat-value" data-lang="en" style="display:none">&euro;100 - &euro;20,000</div>
+          <div class="stat-label" data-lang="pl">Wartosc projektow</div>
+          <div class="stat-label" data-lang="en" style="display:none">Project value</div>
         </div>
 
-        <div class="website-card fade-in">
-          <div class="website-thumb">
-            <img src="https://picsum.photos/seed/moveright/800/450" alt="MoveRight Fitness" loading="lazy">
-          </div>
-          <div class="website-body">
-            <h3>MoveRight Fitness</h3>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="website-url">moveright.fit</a>
-            <p>Booking platform for personal trainers. Schedule management, client profiles, and payment processing.</p>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
+        <div class="stat-item fade-in">
+          <div class="stat-value">80+</div>
+          <div class="stat-label" data-lang="pl">Zrealizowanych projektow</div>
+          <div class="stat-label" data-lang="en" style="display:none">Completed projects</div>
         </div>
 
-        <div class="website-card fade-in">
-          <div class="website-thumb">
-            <img src="https://picsum.photos/seed/greenleaf/800/450" alt="GreenLeaf Organics" loading="lazy">
-          </div>
-          <div class="website-body">
-            <h3>GreenLeaf Organics</h3>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="website-url">greenleaf-organics.com</a>
-            <p>Organic food delivery landing page. Menu showcase, delivery zones, and order form integration.</p>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
+        <div class="stat-item fade-in">
+          <div class="stat-value">95%</div>
+          <div class="stat-label" data-lang="pl">Zadowolonych klientow</div>
+          <div class="stat-label" data-lang="en" style="display:none">Satisfied clients</div>
         </div>
 
-        <div class="website-card fade-in">
-          <div class="website-thumb">
-            <img src="https://picsum.photos/seed/techpulse/800/450" alt="TechPulse Blog" loading="lazy">
-          </div>
-          <div class="website-body">
-            <h3>TechPulse Blog</h3>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="website-url">techpulse.dev</a>
-            <p>Tech blog with an automated content pipeline. SEO-optimized articles, newsletter integration, and analytics.</p>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
-        </div>
-
-        <div class="website-card fade-in">
-          <div class="website-thumb">
-            <img src="https://picsum.photos/seed/urbannest/800/450" alt="UrbanNest Interiors" loading="lazy">
-          </div>
-          <div class="website-body">
-            <h3>UrbanNest Interiors</h3>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="website-url">urbannest.design</a>
-            <p>Interior design portfolio and booking platform. Project gallery, consultation scheduling, and mood boards.</p>
-            <a href="dashboard-demo.html" target="_blank" rel="noopener" class="btn btn-small btn-green"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
+        <div class="stat-item fade-in">
+          <div class="stat-value">+45%</div>
+          <div class="stat-label" data-lang="pl">Sredni wzrost ruchu</div>
+          <div class="stat-label" data-lang="en" style="display:none">Average traffic increase</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Performance Metrics -->
-  <section id="metrics">
+  <!-- ===== PORTFOLIO TILES ===== -->
+  <section id="portfolio">
     <div class="container">
-      <span class="section-label">Performance</span>
-      <h2 class="section-title">Numbers that matter</h2>
-      <p class="section-subtitle">Real results from real projects. These metrics reflect my commitment to quality and efficiency.</p>
+      <div class="section-label" data-lang="pl">Realizacje</div>
+      <div class="section-label" data-lang="en" style="display:none">Portfolio</div>
+      <h2 class="section-title" data-lang="pl">Strony, ktore zbudowalismy</h2>
+      <h2 class="section-title" data-lang="en" style="display:none">Websites we built</h2>
 
-      <div class="metrics-grid">
+      <div class="portfolio-tiles">
 
-        <div class="metric-card fade-in">
-          <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
-          <div class="metric-value"><span class="counter" data-target="80">0</span>+</div>
-          <div class="metric-label">Projects Completed</div>
-          <div class="metric-bar"><div class="metric-bar-fill" data-width="92"></div></div>
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/coffeedesk-store/400/200" alt="Coffeedesk" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Coffeedesk</h4>
+            <span data-lang="pl">Sklep online - kawa i akcesoria</span>
+            <span data-lang="en" style="display:none">Online store - coffee and accessories</span>
+          </div>
+          <a href="https://www.coffeedesk.pl" target="_blank" rel="noopener"></a>
         </div>
 
-        <div class="metric-card fade-in">
-          <div class="metric-icon"><i class="fas fa-code"></i></div>
-          <div class="metric-value"><span class="counter" data-target="120">0</span>K+</div>
-          <div class="metric-label">Lines of Code</div>
-          <div class="metric-bar"><div class="metric-bar-fill" data-width="85"></div></div>
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/gentlemen-barber/400/200" alt="Gentlemen Barbershop" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Gentlemen Barbershop</h4>
+            <span data-lang="pl">Strona barber shopu z rezerwacjami</span>
+            <span data-lang="en" style="display:none">Barbershop website with bookings</span>
+          </div>
+          <a href="https://www.gentlemen-radom.pl" target="_blank" rel="noopener"></a>
         </div>
 
-        <div class="metric-card fade-in">
-          <div class="metric-icon"><i class="fas fa-table"></i></div>
-          <div class="metric-value"><span class="counter" data-target="2">0</span>M+</div>
-          <div class="metric-label">Data Rows Processed</div>
-          <div class="metric-bar"><div class="metric-bar-fill" data-width="78"></div></div>
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/winnica-rest/400/200" alt="Restauracja Winnica" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Restauracja Winnica</h4>
+            <span data-lang="pl">Strona restauracji z menu online</span>
+            <span data-lang="en" style="display:none">Restaurant website with online menu</span>
+          </div>
+          <a href="https://restauracjawinnica.pl" target="_blank" rel="noopener"></a>
         </div>
 
-        <div class="metric-card fade-in">
-          <div class="metric-icon"><i class="fas fa-server"></i></div>
-          <div class="metric-value"><span class="counter" data-target="99.9" data-decimals="1">0</span>%</div>
-          <div class="metric-label">Uptime</div>
-          <div class="metric-bar"><div class="metric-bar-fill" data-width="99"></div></div>
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/pescatore-rest/400/200" alt="Pescatore" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Pescatore</h4>
+            <span data-lang="pl">Restauracja wloska - strona i SEO</span>
+            <span data-lang="en" style="display:none">Italian restaurant - website and SEO</span>
+          </div>
+          <a href="https://www.pescatore.pl" target="_blank" rel="noopener"></a>
         </div>
 
-        <div class="metric-card fade-in">
-          <div class="metric-icon"><i class="fas fa-shipping-fast"></i></div>
-          <div class="metric-value"><span class="counter" data-target="1.8" data-decimals="1">0</span> days</div>
-          <div class="metric-label">Avg Delivery Time</div>
-          <div class="metric-bar"><div class="metric-bar-fill" data-width="95"></div></div>
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/kamienica-hotel/400/200" alt="Hotel Kamienica" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Hotel Kamienica</h4>
+            <span data-lang="pl">Strona hotelu z systemem rezerwacji</span>
+            <span data-lang="en" style="display:none">Hotel website with booking system</span>
+          </div>
+          <a href="https://hotelkamienica.pl" target="_blank" rel="noopener"></a>
+        </div>
+
+        <div class="portfolio-tile fade-in">
+          <img src="https://picsum.photos/seed/ecom-analytics/400/200" alt="Analytics Dashboard" loading="lazy">
+          <div class="portfolio-tile-info">
+            <h4>Panel Analityczny</h4>
+            <span data-lang="pl">Dashboard e-commerce - raporty i KPI</span>
+            <span data-lang="en" style="display:none">E-commerce dashboard - reports and KPIs</span>
+          </div>
+          <a href="dashboard-demo.html" target="_blank" rel="noopener"></a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Reviews -->
+  <!-- ===== REVIEWS ===== -->
   <section id="reviews">
     <div class="container">
-      <span class="section-label">Testimonials</span>
-      <h2 class="section-title">What clients say</h2>
-      <p class="section-subtitle">Feedback from clients I have worked with on automation, data, and development projects.</p>
+
+      <div class="section-label" data-lang="pl">Opinie klientow</div>
+      <div class="section-label" data-lang="en" style="display:none">Client reviews</div>
+      <h2 class="section-title" data-lang="pl">Co mowia nasi klienci</h2>
+      <h2 class="section-title" data-lang="en" style="display:none">What our clients say</h2>
 
       <div class="reviews-grid">
 
+        <!-- Review 1 - PL -->
         <div class="review-card fade-in">
-          <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="review-quote">"Marek delivered our scraping pipeline 2 days ahead of schedule. Clean code, great communication. Will hire again."</p>
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-quote" data-lang="pl">"Marek zrobil nam strone, ktora w koncu wyglada profesjonalnie. Klienci sami do nas trafiaja z Google. Polecam kazdemu, kto prowadzi maly biznes."</p>
+          <p class="review-quote" data-lang="en" style="display:none">"Marek built us a website that finally looks professional. Customers find us through Google on their own. I recommend him to every small business owner."</p>
           <div class="review-author">
-            <div class="review-avatar">
-              <img src="https://picsum.photos/seed/sarah/88/88" alt="Sarah M." loading="lazy">
-            </div>
+            <div class="review-avatar">AK</div>
             <div>
-              <div class="review-name">Sarah M.</div>
-              <div class="review-role">CTO at DataFlow Inc.</div>
+              <div class="review-name">Anna Kowalska</div>
+              <div class="review-role" data-lang="pl">Wlascicielka salonu kosmetycznego, Kielce</div>
+              <div class="review-role" data-lang="en" style="display:none">Beauty salon owner, Kielce</div>
             </div>
           </div>
         </div>
 
+        <!-- Review 2 - PL -->
         <div class="review-card fade-in">
-          <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="review-quote">"Profesjonalne podejscie i szybka realizacja. Marek zautomatyzowal nam proces wprowadzania danych, co oszczedza nam 20 godzin tygodniowo."</p>
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-quote" data-lang="pl">"Strona ladowala sie 8 sekund, teraz laduje sie w 2. Liczba klientow z internetu wzrosla o polowe. Swietna robota."</p>
+          <p class="review-quote" data-lang="en" style="display:none">"Our website used to take 8 seconds to load, now it loads in 2. The number of online customers increased by half. Great work."</p>
           <div class="review-author">
-            <div class="review-avatar">
-              <img src="https://picsum.photos/seed/tomasz/88/88" alt="Tomasz K." loading="lazy">
-            </div>
+            <div class="review-avatar">PN</div>
             <div>
-              <div class="review-name">Tomasz K.</div>
-              <div class="review-role">E-commerce Manager</div>
+              <div class="review-name">Piotr Nowak</div>
+              <div class="review-role" data-lang="pl">Wlasciciel restauracji, Tarnow</div>
+              <div class="review-role" data-lang="en" style="display:none">Restaurant owner, Tarnow</div>
             </div>
           </div>
         </div>
 
+        <!-- Review 3 - EN -->
         <div class="review-card fade-in">
-          <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="review-quote">"The Telegram bot Marek built for us handles 500+ daily notifications without a single issue. Reliable and well-documented."</p>
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-quote" data-lang="pl">"Marek zautomatyzowal nasze raporty tygodniowe. Oszczedzamy 5 godzin tygodniowo. Proste, szybkie, bez problemow."</p>
+          <p class="review-quote" data-lang="en" style="display:none">"Marek automated our weekly reports. We save 5 hours every week. Simple, fast, no problems."</p>
           <div class="review-author">
-            <div class="review-avatar">
-              <img src="https://picsum.photos/seed/james/88/88" alt="James R." loading="lazy">
-            </div>
+            <div class="review-avatar">TW</div>
             <div>
-              <div class="review-name">James R.</div>
-              <div class="review-role">Operations Lead</div>
+              <div class="review-name">Tomasz Wisniewski</div>
+              <div class="review-role" data-lang="pl">Dyrektor kliniki, Radom</div>
+              <div class="review-role" data-lang="en" style="display:none">Clinic director, Radom</div>
             </div>
           </div>
         </div>
 
+        <!-- Review 4 - EN -->
         <div class="review-card fade-in">
-          <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="review-quote">"Swietna wspolpraca. Marek dostosowal narzedzie do naszych potrzeb i byl dostepny na kazde pytanie. Polecam!"</p>
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-quote" data-lang="pl">"Balismy sie, ze to bedzie skomplikowane, ale Marek wytlumaczyl wszystko prostym jezykiem. Rezerwacje z telefonow wzrosly o 80%."</p>
+          <p class="review-quote" data-lang="en" style="display:none">"We were worried it would be complicated, but Marek explained everything in simple terms. Mobile bookings increased by 80%."</p>
           <div class="review-author">
-            <div class="review-avatar">
-              <img src="https://picsum.photos/seed/anna/88/88" alt="Anna W." loading="lazy">
-            </div>
+            <div class="review-avatar">MZ</div>
             <div>
-              <div class="review-name">Anna W.</div>
-              <div class="review-role">Marketing Director</div>
+              <div class="review-name">Maria Zajac</div>
+              <div class="review-role" data-lang="pl">Manager hotelu, Kalisz</div>
+              <div class="review-role" data-lang="en" style="display:none">Hotel manager, Kalisz</div>
             </div>
           </div>
         </div>
@@ -1771,292 +1500,165 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-label" data-lang="pl">O mnie</div>
+      <div class="section-label" data-lang="en" style="display:none">About me</div>
+
+      <div class="about-layout fade-in">
+        <div class="about-photo">
+          <img src="marek-photo.jpg" alt="Marek D." style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">
+        </div>
+        <div class="about-content">
+          <h2 class="section-title" data-lang="pl">Czesc, jestem Marek</h2>
+          <h2 class="section-title" data-lang="en" style="display:none">Hi, I'm Marek</h2>
+          <p data-lang="pl">Od ponad 7 lat pomagam lokalnym firmom budowac obecnosc w internecie. Pracuje z firmami z calej Polski, od malych restauracji po kliniki i hotele. Nie uzywam skomplikowanego jezyka, mowie prosto i konkretnie. Zalezy mi na tym, zeby Twoja firma rosla.</p>
+          <p data-lang="en" style="display:none">For over 7 years I've been helping local businesses build their online presence. I work with companies from all over Poland, from small restaurants to clinics and hotels. I don't use complicated language, I speak simply and to the point. I care about growing your business.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <div class="container">
-      <span class="section-label">Contact</span>
-      <h2 class="section-title">Let's work together</h2>
-      <p class="section-subtitle">Have a project in mind? I am always open to discussing new opportunities and ideas.</p>
+      <div class="contact-content">
 
-      <div class="contact-layout">
+        <div class="section-label" data-lang="pl">Kontakt</div>
+        <div class="section-label" data-lang="en" style="display:none">Contact</div>
 
-        <div class="contact-info fade-in">
-          <h3>Get in touch</h3>
-          <p>Whether you need a quick script, a website, SEO audit, or a full automation pipeline - I am here to help. Most simple tasks I can deliver within 24-48 hours, which is why I keep my rates accessible.</p>
+        <h2 data-lang="pl">Porozmawiajmy o Twojej firmie</h2>
+        <h2 data-lang="en" style="display:none">Let's talk about your business</h2>
 
-          <div class="contact-links">
-            <a href="mailto:alex.afshar76@gmail.com" class="contact-link">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;">
+
+          <!-- Contact form (JS mailto, no server) -->
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:1rem;color:var(--text-primary);" data-lang="pl">Wyslij wiadomosc</h3>
+            <h3 style="font-size:1rem;margin-bottom:1rem;color:var(--text-primary);" data-lang="en" style="display:none">Send a message</h3>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <input type="text" id="cf-name" placeholder="Twoje imie" style="padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);font-family:var(--font);font-size:0.9rem;outline:none;">
+              <input type="email" id="cf-email" placeholder="Twoj email" style="padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);font-family:var(--font);font-size:0.9rem;outline:none;">
+              <textarea id="cf-message" placeholder="Opisz krotko czego potrzebujesz..." rows="4" style="padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);font-family:var(--font);font-size:0.9rem;outline:none;resize:vertical;"></textarea>
+              <button onclick="sendContactForm()" style="padding:0.75rem 1.5rem;background:var(--accent);color:white;border:none;border-radius:var(--radius);font-family:var(--font);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.3s;">
+                <i class="fas fa-paper-plane"></i>
+                <span data-lang="pl"> Wyslij wiadomosc</span>
+                <span data-lang="en" style="display:none"> Send message</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct contact info -->
+          <div style="display:flex;flex-direction:column;gap:1.5rem;padding-top:2.5rem;">
+            <a href="mailto:alex.afshar76@gmail.com?subject=Zapytanie%20ze%20strony" class="contact-method" style="text-decoration:none;">
               <i class="fas fa-envelope"></i>
-              PA: alex.afshar76@gmail.com
+              <div>
+                <div class="method-label">PA Alex</div>
+                <div class="method-value">alex.afshar76@gmail.com</div>
+              </div>
             </a>
-            <a href="#contact" class="contact-link">
-              <i class="fas fa-dollar-sign"></i>
-              Rate: €25/h - simple jobs done fast
-            </a>
-            <a href="#contact" class="contact-link">
-              <i class="fas fa-language"></i>
-              Languages: English, Polish
-            </a>
-            <a href="#contact" class="contact-link">
-              <i class="fas fa-map-marker-alt"></i>
-              Europe (remote, working globally)
-            </a>
-            <a href="#contact" class="contact-link">
-              <i class="fas fa-clock"></i>
-              Response time: within 24 hours
-            </a>
+
+            <div class="contact-note">
+              <span class="dot"></span>
+              <span data-lang="pl">Odpowiadamy w ciagu 24 godzin</span>
+              <span data-lang="en" style="display:none">We respond within 24 hours</span>
+            </div>
           </div>
 
-          <div class="contact-socials">
-            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Upwork"><i class="fas fa-briefcase"></i></a>
-          </div>
-
-          <div class="available-badge">
-            <span class="dot"></span>
-            Available for new projects
-          </div>
-        </div>
-
-        <div class="contact-form fade-in">
-          <h3>Send a message</h3>
-          <form action="mailto:alex.afshar76@gmail.com" method="post" enctype="text/plain">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="John Smith" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-          </form>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <div class="footer-inner">
+
         <div class="footer-left">
-          <p>&copy; 2024-2026 Marek D. All rights reserved. Built with <span>Python</span> &amp; passion.</p>
+          <a href="#" class="nav-logo">Marek <span>D.</span></a>
+          <p data-lang="pl">&copy; 2024-2026 Marek D. Wszystkie prawa zastrzezone.</p>
+          <p data-lang="en" style="display:none">&copy; 2024-2026 Marek D. All rights reserved.</p>
         </div>
+
         <ul class="footer-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#problems" data-lang="pl">O nas</a><a href="#problems" data-lang="en" style="display:none">About</a></li>
+          <li><a href="#services" data-lang="pl">Uslugi</a><a href="#services" data-lang="en" style="display:none">Services</a></li>
+          <li><a href="#results" data-lang="pl">Realizacje</a><a href="#results" data-lang="en" style="display:none">Results</a></li>
+          <li><a href="#reviews" data-lang="pl">Opinie</a><a href="#reviews" data-lang="en" style="display:none">Reviews</a></li>
+          <li><a href="#contact" data-lang="pl">Kontakt</a><a href="#contact" data-lang="en" style="display:none">Contact</a></li>
         </ul>
+
+        <div class="footer-tagline" data-lang="pl">Pomagamy firmom rosnac w internecie</div>
+        <div class="footer-tagline" data-lang="en" style="display:none">Helping businesses grow online</div>
+
       </div>
     </div>
   </footer>
 
-  <!-- Modals -->
-  <div class="modal-overlay" id="modal-ecom" onclick="closeModal(event, 'modal-ecom')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalById('modal-ecom')">&times;</button>
-      <h3>E-commerce Analytics Dashboard</h3>
-      <p>Interactive business metrics dashboard with real-time charts, KPI tracking, revenue breakdowns, and performance comparisons across multiple time periods.</p>
-      <p>Built for e-commerce clients who need quick insights into their sales data. Auto-refreshes from database feeds and supports CSV/PDF export.</p>
-      <p><strong>Tech stack:</strong> Chart.js, Python, SQLite, HTML/CSS/JS</p>
-      <p><strong>Impact:</strong> Replaced 3 manual Excel reports, saving 8 hours per week</p>
-      <a href="dashboard-demo.html" class="btn btn-primary btn-small"><i class="fas fa-external-link-alt"></i> View Demo</a>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-nutri" onclick="closeModal(event, 'modal-nutri')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalById('modal-nutri')">&times;</button>
-      <h3>NutriTrack - Health Startup</h3>
-      <p>Full-stack web application for a health-tech startup. Includes a responsive landing page, user onboarding flow, meal tracking API, and data analytics dashboard.</p>
-      <p>Built with React on the frontend and Node.js on the backend. Integrated with third-party nutrition databases and fitness APIs.</p>
-      <p><strong>Tech stack:</strong> React, Node.js, Express, PostgreSQL, REST API</p>
-      <p><strong>Impact:</strong> 2,000+ signups in the first month, 4.7 App Store rating</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-shop" onclick="closeModal(event, 'modal-shop')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalById('modal-shop')">&times;</button>
-      <h3>ShopFlow - Inventory Automation</h3>
-      <p>Multi-marketplace inventory synchronization tool. Keeps stock levels, pricing, and product data in sync across Amazon, Allegro, and Shopify in real time.</p>
-      <p>Handles automatic reordering, price adjustment rules, and order routing. Processes 5,000+ SKUs daily without manual intervention.</p>
-      <p><strong>Tech stack:</strong> Python, Amazon SP-API, Allegro REST API, Shopify Admin API, CSV</p>
-      <p><strong>Impact:</strong> Eliminated overselling, reduced stock-outs by 90%</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-content" onclick="closeModal(event, 'modal-content')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalById('modal-content')">&times;</button>
-      <h3>ContentMill - SEO Pipeline</h3>
-      <p>Automated SEO content generation and publishing system. Performs keyword research, generates optimized articles, and publishes them directly to WordPress.</p>
-      <p>Includes rank tracking, content performance analytics, and automated internal linking. Produces 50+ articles per week with human-level quality.</p>
-      <p><strong>Tech stack:</strong> Python, OpenAI API, WordPress REST API, SEMrush API</p>
-      <p><strong>Impact:</strong> 300% increase in organic traffic within 6 months</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-data" onclick="closeModal(event, 'modal-data')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalById('modal-data')">&times;</button>
-      <h3>DataBridge - CSV Processor</h3>
-      <p>Enterprise-grade bulk data transformation tool. Handles deduplication, validation, format conversion, enrichment, and database import for datasets with millions of rows.</p>
-      <p>Web interface built with FastAPI for easy file upload and configuration. Supports scheduled processing and webhook notifications on completion.</p>
-      <p><strong>Tech stack:</strong> Python, pandas, FastAPI, SQLAlchemy, Redis</p>
-      <p><strong>Impact:</strong> Processes 2M+ rows in under 3 minutes, replaced a team of 4 data entry clerks</p>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    // Mobile nav toggle
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobileNav');
-      const icon = document.getElementById('nav-icon');
-      nav.classList.toggle('active');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
+    // Language toggle
+    let currentLang = 'pl';
+
+    function toggleLang() {
+      currentLang = currentLang === 'pl' ? 'en' : 'pl';
+      document.querySelectorAll('[data-lang]').forEach(function(el) {
+        el.style.display = el.dataset.lang === currentLang ? '' : 'none';
+      });
+      var newLabel = currentLang === 'pl' ? 'EN' : 'PL';
+      document.getElementById('lang-toggle').textContent = newLabel;
+      var mobileToggle = document.getElementById('lang-toggle-mobile');
+      if (mobileToggle) mobileToggle.textContent = newLabel;
     }
 
-    function closeMobileNav() {
-      const nav = document.getElementById('mobileNav');
-      const icon = document.getElementById('nav-icon');
-      nav.classList.remove('active');
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+    // Contact form (mailto, no server needed)
+    function sendContactForm() {
+      var name = document.getElementById('cf-name').value;
+      var email = document.getElementById('cf-email').value;
+      var message = document.getElementById('cf-message').value;
+      var subject = 'Zapytanie ze strony - ' + name;
+      var body = 'Imie: ' + name + '\nEmail: ' + email + '\n\n' + message;
+      window.location.href = 'mailto:alex.afshar76@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     }
 
-    // Service card expand/collapse
-    function toggleService(card) {
-      const wasExpanded = card.classList.contains('expanded');
-      document.querySelectorAll('.service-card.expanded').forEach(c => c.classList.remove('expanded'));
-      if (!wasExpanded) {
-        card.classList.add('expanded');
+    // Mobile navigation
+    function toggleMobile() {
+      var menu = document.getElementById('nav-mobile');
+      menu.classList.toggle('active');
+    }
+
+    function closeMobile() {
+      var menu = document.getElementById('nav-mobile');
+      menu.classList.remove('active');
+    }
+
+    // Fade-in on scroll
+    var fadeEls = document.querySelectorAll('.fade-in');
+
+    function checkFade() {
+      fadeEls.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('nav-mobile');
+      var toggle = document.querySelector('.nav-toggle');
+      if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        closeMobile();
       }
-    }
-
-    // Modal open/close
-    function openModal(id) {
-      document.getElementById(id).classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(event, id) {
-      if (event.target === event.currentTarget) {
-        closeModalById(id);
-      }
-    }
-
-    function closeModalById(id) {
-      document.getElementById(id).classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-          modal.classList.remove('active');
-        });
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Scroll animations (IntersectionObserver)
-    const fadeObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      fadeObserver.observe(el);
-    });
-
-    // Counter animation
-    const counterObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateCounters(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('#metrics').forEach(function(el) {
-      counterObserver.observe(el);
-    });
-
-    function animateCounters(section) {
-      const counters = section.querySelectorAll('.counter');
-      counters.forEach(function(counter) {
-        const target = parseFloat(counter.getAttribute('data-target'));
-        const decimals = parseInt(counter.getAttribute('data-decimals') || '0');
-        const duration = 2000;
-        const start = performance.now();
-
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = target * eased;
-
-          counter.textContent = current.toFixed(decimals);
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            counter.textContent = target.toFixed(decimals);
-          }
-        }
-
-        requestAnimationFrame(update);
-      });
-
-      // Animate progress bars
-      const bars = section.querySelectorAll('.metric-bar-fill');
-      bars.forEach(function(bar) {
-        const width = bar.getAttribute('data-width');
-        setTimeout(function() {
-          bar.style.width = width + '%';
-        }, 300);
-      });
-    }
-
-    // Active nav link highlight on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-
-    window.addEventListener('scroll', function() {
-      let current = '';
-      sections.forEach(function(section) {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(function(link) {
-        link.style.color = '';
-        if (link.getAttribute('href') === '#' + current) {
-          link.style.color = 'var(--text-primary)';
-        }
-      });
     });
   </script>
 
