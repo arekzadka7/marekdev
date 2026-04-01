@@ -140,6 +140,36 @@
       color: var(--text-primary);
     }
 
+    /* Floating language button - always visible on mobile */
+    .lang-float {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: var(--font);
+      box-shadow: 0 4px 15px rgba(74, 158, 255, 0.4);
+      transition: all 0.2s;
+    }
+
+    .lang-float:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .lang-float {
+        display: block;
+      }
+    }
+
     .nav-cta {
       background: var(--accent);
       color: #fff !important;
@@ -1600,13 +1630,25 @@
     </div>
   </footer>
 
+  <!-- Floating language button for mobile -->
+  <button class="lang-float" onclick="toggleLang()" id="lang-float">EN</button>
+
   <!-- ===== SCRIPTS ===== -->
   <script>
     // Language toggle
     let currentLang = 'pl';
 
+    // Check URL parameter for default language
+    if (window.location.search.includes('lang=en')) {
+      currentLang = 'en';
+    }
+
     function toggleLang() {
       currentLang = currentLang === 'pl' ? 'en' : 'pl';
+      applyLang();
+    }
+
+    function applyLang() {
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.style.display = el.dataset.lang === currentLang ? '' : 'none';
       });
@@ -1614,6 +1656,13 @@
       document.getElementById('lang-toggle').textContent = newLabel;
       var mobileToggle = document.getElementById('lang-toggle-mobile');
       if (mobileToggle) mobileToggle.textContent = newLabel;
+      var floatToggle = document.getElementById('lang-float');
+      if (floatToggle) floatToggle.textContent = newLabel;
+    }
+
+    // Apply on page load
+    if (currentLang === 'en') {
+      applyLang();
     }
 
     // Contact form (mailto, no server needed)
